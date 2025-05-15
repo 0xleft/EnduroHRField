@@ -4,7 +4,7 @@ import Toybox.WatchUi;
 
 class EnduroHRFieldApp extends Application.AppBase {
     const HEART_ICON_Y_OFFSET = 0;
-    const ZONE_BOX_WIDTH = 80;
+    const ZONE_BOX_WIDTH = 60;
 
     function getZoneBoxWidth() as Number {
         return ZONE_BOX_WIDTH;

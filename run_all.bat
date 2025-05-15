@@ -20,8 +20,8 @@ echo Running Simulator on low-memory devices
 echo ----------------------------------------
 
 FOR %%d IN (
-    edge1030
     edge1050
+    edge1030
     edge530
     edge540
     edge840

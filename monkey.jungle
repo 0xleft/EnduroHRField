@@ -2,7 +2,6 @@ project.manifest = manifest.xml
 
 edge530.sourcePath = source;source-default;resources
 edge1030.sourcePath = source;source-default;resources
-
-edge1050.sourcePath = source;source-edge1050;resources
 edge540.sourcePath = source;source-edge540;resources
 edge840.sourcePath = source;source-edge840;resources
+edge1050.sourcePath = source;source-edge1050;resources

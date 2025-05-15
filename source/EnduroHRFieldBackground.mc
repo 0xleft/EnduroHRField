@@ -24,5 +24,4 @@ class Background extends WatchUi.Drawable {
         dc.setColor(Graphics.COLOR_TRANSPARENT, mColor);
         dc.clear();
     }
-
 }
