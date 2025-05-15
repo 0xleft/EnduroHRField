@@ -3,6 +3,7 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.WatchUi;
 import Toybox.UserProfile;
+import Toybox.System;
 
 class EnduroHRFieldView extends WatchUi.DataField {
     hidden var mHeartRate as Number = 0;
@@ -138,7 +139,11 @@ class EnduroHRFieldView extends WatchUi.DataField {
         var y = dc.getHeight() / 2 + 5;
         var x = dc.getWidth() / 2 - dc.getTextWidthInPixels(mHeartRate.format("%d"), Graphics.FONT_LARGE) / 2 + heartIcons[0].getWidth() / 2;
 
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+        if (getBackgroundColor() == Graphics.COLOR_BLACK or System.getDeviceSettings().isNightModeEnabled) {
+            dc.setColor(Graphics.COLOR_WHITE, getBackgroundColor());
+        } else {
+            dc.setColor(Graphics.COLOR_BLACK, getBackgroundColor());
+        }
         dc.drawText(x, y, Graphics.FONT_LARGE, mHeartRate.format("%d"), Graphics.TEXT_JUSTIFY_LEFT);
         
         drawHeart(dc, x - heartIcons[0].getWidth() - 5, y + 5 + getApp().getHeartIconOffset(), ZONE_COLORS[0]); // we presume that all icons are same size
