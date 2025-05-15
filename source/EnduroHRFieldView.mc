@@ -89,11 +89,11 @@ class EnduroHRFieldView extends WatchUi.DataField {
     }
 
     function drawZoneRect(dc as Dc, centerX as Number, centerY as Number, zoneMin as Number, zoneMax as Number, color as Graphics.ColorType, highlighted as Boolean) as Void {
-        var zoneWidth = 35;
+        var zoneWidth = getApp().getZoneBoxWidth();
         var zoneHeight = 10;
         
         if (highlighted) {
-            zoneWidth = 40;
+            zoneWidth = getApp().getZoneBoxWidth() * 1.14;
             zoneHeight = 15;
         }
         
@@ -130,8 +130,8 @@ class EnduroHRFieldView extends WatchUi.DataField {
         dc.drawRectangle(centerX - markerWidth / 2 - 1, centerY - markerHeight / 2 - 1, markerWidth + 1, markerHeight + 1);
     }
 
-    function drawHeart(dc as Dc, centerX as Number, centerY as Number, zone as Number) as Void {
-        dc.drawBitmap(centerX, centerY, heartIcons[currentZone]);
+    function drawHeart(dc as Dc, x as Number, y as Number, zone as Number) as Void {
+        dc.drawBitmap(x, y, heartIcons[currentZone]);
     }
 
     function drawHeartRate(dc as Dc) as Void {
@@ -140,7 +140,7 @@ class EnduroHRFieldView extends WatchUi.DataField {
 
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, Graphics.FONT_LARGE, mHeartRate.format("%d"), Graphics.TEXT_JUSTIFY_LEFT);
-
-        drawHeart(dc, x - heartIcons[0].getWidth() - 5, y + 5, ZONE_COLORS[0]); // we presume that all icons are same size
+        
+        drawHeart(dc, x - heartIcons[0].getWidth() - 5, y + 5 + getApp().getHeartIconOffset(), ZONE_COLORS[0]); // we presume that all icons are same size
     }
 }
