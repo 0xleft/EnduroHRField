@@ -79,6 +79,10 @@ class EnduroHRFieldView extends WatchUi.DataField {
                 highlighted = true;
                 currentZone = i;
             }
+            if (i == 0 && mHeartRate < zoneMin) {
+                highlighted = true;
+                currentZone = 0;
+            }
 
             drawZoneRect(dc, centerX, centerY, zoneMin, zoneMax, color, highlighted);
         }
@@ -104,6 +108,11 @@ class EnduroHRFieldView extends WatchUi.DataField {
         if (highlighted) {
             var persentage = (mHeartRate.toFloat() - zoneMin.toFloat()) / (zoneMax.toFloat() - zoneMin.toFloat());
 
+            if (persentage < 0) {
+                persentage = 0;
+            } else if (persentage > 1) {
+                persentage = 1;
+            }
             // dc.drawText(0, 20, Graphics.FONT_MEDIUM, persentage.format("%.2f"), Graphics.TEXT_JUSTIFY_LEFT); 
 
             var markerX = (rectX + zoneWidth * persentage) as Number;
