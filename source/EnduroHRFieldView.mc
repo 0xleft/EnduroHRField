@@ -104,7 +104,7 @@ class EnduroHRFieldView extends WatchUi.DataField {
         if (highlighted) {
             var persentage = (mHeartRate.toFloat() - zoneMin.toFloat()) / (zoneMax.toFloat() - zoneMin.toFloat());
 
-            dc.drawText(0, 20, Graphics.FONT_MEDIUM, persentage.format("%.2f"), Graphics.TEXT_JUSTIFY_LEFT); 
+            // dc.drawText(0, 20, Graphics.FONT_MEDIUM, persentage.format("%.2f"), Graphics.TEXT_JUSTIFY_LEFT); 
 
             var markerX = (rectX + zoneWidth * persentage) as Number;
             drawMarker(dc, markerX, centerY);
@@ -126,8 +126,8 @@ class EnduroHRFieldView extends WatchUi.DataField {
     }
 
     function drawHeartRate(dc as Dc) as Void {
-        var y = dc.getHeight() / 2 + 10;
-        var x = dc.getWidth() / 2 - dc.getTextWidthInPixels(mHeartRate.format("%d"), Graphics.FONT_LARGE) / 2;
+        var y = dc.getHeight() / 2 + 5;
+        var x = dc.getWidth() / 2 - dc.getTextWidthInPixels(mHeartRate.format("%d"), Graphics.FONT_LARGE) / 2 + heartIcons[0].getWidth() / 2;
 
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, Graphics.FONT_LARGE, mHeartRate.format("%d"), Graphics.TEXT_JUSTIFY_LEFT);
