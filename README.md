@@ -4,7 +4,7 @@ This small project aims to bring the well designed HR field from Enduro 3 watch 
 
 ## Download
 
-On Garmin Connect IQ [here](todo)
+On Garmin Connect IQ [here](https://apps.garmin.com/apps/61a4a558-fdaf-4c49-a129-ee784faeee6f)
 
 ## Compatable devices
 
