@@ -10,6 +10,7 @@ class EnduroHRFieldView extends WatchUi.DataField {
     hidden var hrZones as Array<Number> = [];
     hidden var heartIcons as Array<BitmapResource> = [];
     hidden var currentZone as Number = 0;
+    hidden var isNightMode as Boolean = false;
 
     hidden const ZONE_COLORS as Array<Graphics.ColorType> = [
         Graphics.COLOR_LT_GRAY,
@@ -42,6 +43,12 @@ class EnduroHRFieldView extends WatchUi.DataField {
                 mHeartRate = 0;
                 currentZone = 0;
             }
+        }
+
+        if (System.getDeviceSettings() has :isNightModeEnabled) {
+            isNightMode = System.getDeviceSettings().isNightModeEnabled;
+        } else {
+            isNightMode = false;
         }
     }
 
@@ -139,7 +146,7 @@ class EnduroHRFieldView extends WatchUi.DataField {
         var y = dc.getHeight() / 2 + 5;
         var x = dc.getWidth() / 2 - dc.getTextWidthInPixels(mHeartRate.format("%d"), Graphics.FONT_LARGE) / 2 + heartIcons[0].getWidth() / 2;
 
-        if (getBackgroundColor() == Graphics.COLOR_BLACK or System.getDeviceSettings().isNightModeEnabled) {
+        if (getBackgroundColor() == Graphics.COLOR_BLACK or isNightMode) {
             dc.setColor(Graphics.COLOR_WHITE, getBackgroundColor());
         } else {
             dc.setColor(Graphics.COLOR_BLACK, getBackgroundColor());
