@@ -1,0 +1,15 @@
+<resources>
+    <properties>
+        <property id="padding" type="number">17</property>
+    </properties>
+
+    <strings>
+       <string id="padding_title">Padding (from each side)</string>
+    </strings>
+
+    <settings>
+        <setting propertyKey="@Properties.padding" title="@Strings.padding_title">
+            <settingConfig type="numeric" min="0" max="100"/>
+        </setting>
+   </settings>
+</resources>

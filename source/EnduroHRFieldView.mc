@@ -11,6 +11,7 @@ class EnduroHRFieldView extends WatchUi.DataField {
     hidden var heartIcons as Array<BitmapResource> = [];
     hidden var currentZone as Number = 0;
     hidden var isNightMode as Boolean = false;
+    hidden var padding as Number = 5;
 
     hidden const ZONE_COLORS as Array<Graphics.ColorType> = [
         Graphics.COLOR_LT_GRAY,
@@ -23,6 +24,7 @@ class EnduroHRFieldView extends WatchUi.DataField {
     function initialize() {
         DataField.initialize();
         hrZones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
+        padding = getApp().getProperty("padding").toNumber();
 
         heartIcons.add(WatchUi.loadResource(Rez.Drawables.HeartIconGray));
         heartIcons.add(WatchUi.loadResource(Rez.Drawables.HeartIconBlue));
@@ -71,7 +73,9 @@ class EnduroHRFieldView extends WatchUi.DataField {
         var height = dc.getHeight();
         var zoneY = height / 2 - 20;
         var width = dc.getWidth();
-        var zoneWidth = width / (zoneCount - 1);
+
+
+        var zoneWidth = (width - padding * 2) / (zoneCount - 1);
 
 
         for (var i = 0; i < zoneCount - 1; i++) {
@@ -80,7 +84,7 @@ class EnduroHRFieldView extends WatchUi.DataField {
             var color = ZONE_COLORS[i];
 
             var centerY = zoneY;
-            var centerX = zoneWidth * i + zoneWidth / 2;
+            var centerX = zoneWidth * i + zoneWidth / 2 + padding;
 
             var highlighted = false;
             if (mHeartRate >= zoneMin && mHeartRate < zoneMax) {
