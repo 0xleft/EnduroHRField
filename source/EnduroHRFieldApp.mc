@@ -3,17 +3,6 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 class EnduroHRFieldApp extends Application.AppBase {
-    const HEART_ICON_Y_OFFSET = -7;
-    const ZONE_BOX_WIDTH = 35;
-
-    function getZoneBoxWidth() as Number {
-        return ZONE_BOX_WIDTH;
-    }
-
-    function getHeartIconOffset() as Number {
-        return HEART_ICON_Y_OFFSET;
-    }
-
     function initialize() {
         AppBase.initialize();
     }

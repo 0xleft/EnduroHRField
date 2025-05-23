@@ -1,0 +1,2 @@
+const ZONE_BOX_WIDTH = 60;
+const HEART_ICON_Y_OFFSET = 0;

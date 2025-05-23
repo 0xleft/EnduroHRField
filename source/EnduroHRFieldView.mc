@@ -101,11 +101,11 @@ class EnduroHRFieldView extends WatchUi.DataField {
     }
 
     function drawZoneRect(dc as Dc, centerX as Number, centerY as Number, zoneMin as Number, zoneMax as Number, color as Graphics.ColorType, highlighted as Boolean) as Void {
-        var zoneWidth = getApp().getZoneBoxWidth();
+        var zoneWidth = ZONE_BOX_WIDTH;
         var zoneHeight = 10;
         
         if (highlighted) {
-            zoneWidth = getApp().getZoneBoxWidth() * 1.14;
+            zoneWidth = ZONE_BOX_WIDTH * 1.14;
             zoneHeight = 15;
         }
         
@@ -157,6 +157,6 @@ class EnduroHRFieldView extends WatchUi.DataField {
         }
         dc.drawText(x, y, Graphics.FONT_LARGE, mHeartRate.format("%d"), Graphics.TEXT_JUSTIFY_LEFT);
         
-        drawHeart(dc, x - heartIcons[0].getWidth() - 5, y + 5 + getApp().getHeartIconOffset(), ZONE_COLORS[0]); // we presume that all icons are same size
+        drawHeart(dc, x - heartIcons[0].getWidth() - 5, y + 5 + HEART_ICON_Y_OFFSET, ZONE_COLORS[0]); // we presume that all icons are same size
     }
 }
