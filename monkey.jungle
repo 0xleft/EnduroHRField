@@ -1,7 +1,18 @@
 project.manifest = manifest.xml
 
 edge530.sourcePath = source;source-default;resources
-edge1030.sourcePath = source;source-default;resources
 edge540.sourcePath = source;source-edge540;resources
 edge840.sourcePath = source;source-edge840;resources
 edge1050.sourcePath = source;source-edge1050;resources
+edge520plus.sourcePath = source;source-edge520plus;resources
+edge820.sourcePath = source;source-edge820;resources
+edge830.sourcePath = source;source-default;resources
+
+edge1030.sourcePath = source;source-edge1030;resources
+edge1030bontrager.sourcePath = source;source-edge1030;resources
+edge1030plus.sourcePath = source;source-edge1030;resources
+
+edge1040.sourcePath = source;source-edge1040;resources
+
+edgeexplore.sourcePath = source;source-default;resources
+edgeexplore2.sourcePath = source;source-default;resources

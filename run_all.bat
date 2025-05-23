@@ -20,11 +20,19 @@ echo Running Simulator on low-memory devices
 echo ----------------------------------------
 
 FOR %%d IN (
-    edge1050
     edge1030
+    edge1030bontrager
+    edge1030plus
+    edge1040
+    edge520plus
     edge530
     edge540
+    edge820
+    edge830
     edge840
+    edgeexplore
+    edgeexplore2
+    edge1050
 ) DO (
   CALL :RUN_SIMULATOR "%%d"
 )
